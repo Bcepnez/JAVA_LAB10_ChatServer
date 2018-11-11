@@ -11,7 +11,7 @@ public class MainServer {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		ServerThread svt = new ServerThread(2500);
+		ServerThread svt = new ServerThread(4343);
 		svt.start();
 	}
 
