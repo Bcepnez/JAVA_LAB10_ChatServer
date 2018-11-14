@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MainServer {
 
@@ -38,7 +36,7 @@ class ServerThread extends Thread {
                 System.out.println("Client"+(++count)+": connect to " + server.getRemoteSocketAddress());
                                
                 DataInputStream in = new DataInputStream(server.getInputStream());
-                //System.out.println(in.readUTF());
+                
                 in_data.add(in);
                 System.out.println("in_list size = "+in_data.size());
                 
@@ -55,7 +53,7 @@ class ServerThread extends Thread {
                 System.out.println(e.toString());
                 try {
                     servsocket.close();
-                    System.out.println("Bye bye");
+                    System.out.println("ServerSocket Closed");
                     break;
                 } catch (IOException e1) {
                     e1.printStackTrace();
@@ -85,7 +83,7 @@ class ServerThread extends Thread {
                                 }
                             }
                         } catch (IOException ex) {
-                            Logger.getLogger(ServerThread.class.getName()).log(Level.SEVERE, null, ex);
+//                            Logger.getLogger(ServerThread.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 }
